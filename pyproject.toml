@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cw-pyt-lib"
+version = "0.1.0"
+description = ""
+authors = ["Michael Gorbunov <mg0rby@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.1.0"
+black = "^24.4.2"
+isort = "^5.13.2"
+mypy = "^1.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
