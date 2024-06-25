@@ -75,7 +75,11 @@ def getting_data_currencies(api: str, currencies: dict) -> list[dict]:
         logger.info("Перебираем валюты из заданного списка словарей валют")
         for currency in currencies["user_currencies"]:
             logger.info("Делаем запрос на сервис API для получения курса валют")
+            logger.info(currency)
+
+
             response = requests.get(api, params={"get": "rates", "pairs": f"{currency}RUB", "key": API_KEY})
+            logger.info({"get": "rates", "pairs": f"{currency}RUB", "key": API_KEY})
 
             logger.info("Получаем JSON данные")
             logger.info(response)
@@ -125,4 +129,4 @@ def getting_data_stock_prices(api: str, stocks: dict) -> Union[list[dict] | dict
 
 
 # getting_data_stock_prices("https://finnhub.io/api/v1/quote",data_json)
-getting_data_stock_prices(url_stocks, data_json)
+# getting_data_stock_prices(url_stocks, data_json)
