@@ -84,4 +84,16 @@ def getting_top_specified_period(data: pd.DataFrame) -> list[dict]:
 
 
     return result
-print(getting_top_specified_period(ds_2[:5]))
+# print(getting_top_specified_period(ds_2[:5]))
+
+date = "2021-12-31"
+        # selected_date = datetime.today().strftime()
+date_obj = datetime.strptime(date,"%Y-%m-%d")
+date_obj = date_obj.replace(day=1)
+
+def data_set_1mont(transactions: pd.DataFrame,
+                         start_date: datetime) -> pd.DataFrame:
+
+    filtered_transactions =transactions.loc[(transactions["date_colum"] > start_date)]
+    return filtered_transactions
+data_set_1mont(my_df,date_obj).to_csv('1mont.csv', encoding='utf-8')
