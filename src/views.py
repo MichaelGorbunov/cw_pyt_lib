@@ -20,19 +20,36 @@ def main(date):
     # course = getting_data_currencies(url, data_json)
     # stock_prices = getting_data_stock_prices(url_stocks, data_json)
     transactions = get_transaction_from_csv_file("1mont.csv")
-    top_transactions = [{'date': '22.11.2021', 'amount': -126105.03, 'category': 'Переводы',
-                         'description': 'Перевод Кредитная карта. ТП 10.2 RUR'},
-                        {'date': '04.10.2021', 'amount': -91500.0, 'category': 'Медицина', 'description': 'Mikrokhirurgya Glaza'},
-                        {'date': '22.10.2021', 'amount': -63021.01, 'category': 'Переводы',
-                         'description': 'Перевод Кредитная карта. ТП 10.2 RUR'},
-                        {'date': '17.11.2021', 'amount': -50000.0, 'category': 'Переводы', 'description': 'Пополнение вклада'},
-                        {'date': '22.12.2021', 'amount': -28001.94, 'category': 'Переводы',
-                         'description': 'Перевод Кредитная карта. ТП 10.2 RUR'}]
-    course = [{'currency': 'USD', 'rate': '64.1824'}, {'currency': 'EUR', 'rate': '69.244'}]
-    stock_prices = [{'stock': 'AAPL', 'price': 208.14}, {'stock': 'AMZN', 'price': 185.57},
-                    {'stock': 'GOOGL', 'price': 179.22}, {'stock': 'MSFT', 'price': 447.67},
-                    {'stock': 'TSLA', 'price': 182.58}]
-
+    top_transactions = [
+        {
+            "date": "22.11.2021",
+            "amount": -126105.03,
+            "category": "Переводы",
+            "description": "Перевод Кредитная карта. ТП 10.2 RUR",
+        },
+        {"date": "04.10.2021", "amount": -91500.0, "category": "Медицина", "description": "Mikrokhirurgya Glaza"},
+        {
+            "date": "22.10.2021",
+            "amount": -63021.01,
+            "category": "Переводы",
+            "description": "Перевод Кредитная карта. ТП 10.2 RUR",
+        },
+        {"date": "17.11.2021", "amount": -50000.0, "category": "Переводы", "description": "Пополнение вклада"},
+        {
+            "date": "22.12.2021",
+            "amount": -28001.94,
+            "category": "Переводы",
+            "description": "Перевод Кредитная карта. ТП 10.2 RUR",
+        },
+    ]
+    course = [{"currency": "USD", "rate": "64.1824"}, {"currency": "EUR", "rate": "69.244"}]
+    stock_prices = [
+        {"stock": "AAPL", "price": 208.14},
+        {"stock": "AMZN", "price": 185.57},
+        {"stock": "GOOGL", "price": 179.22},
+        {"stock": "MSFT", "price": 447.67},
+        {"stock": "TSLA", "price": 182.58},
+    ]
 
     logger.info("Полученные данные преобразовываем в заданный словарь")
     response = {
@@ -41,7 +58,6 @@ def main(date):
         "top_transactions": top_transactions,
         "currency_rates": course,
         "stock_prices": stock_prices,
-
     }
 
     logger.info("Выводим результат")

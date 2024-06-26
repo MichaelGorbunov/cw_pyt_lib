@@ -77,7 +77,6 @@ def getting_data_currencies(api: str, currencies: dict) -> list[dict]:
             logger.info("Делаем запрос на сервис API для получения курса валют")
             logger.info(currency)
 
-
             response = requests.get(api, params={"get": "rates", "pairs": f"{currency}RUB", "key": API_KEY})
             logger.info({"get": "rates", "pairs": f"{currency}RUB", "key": API_KEY})
 
