@@ -5,7 +5,7 @@ import os
 import json
 import requests
 from dotenv import load_dotenv
-from src.data_conn import get_transaction_from_xlsx_file,data_patch
+from src.data_conn import get_dataframe
 
 load_dotenv()
 
@@ -48,4 +48,4 @@ if fake_data_set == "Yes":
 else:
     print("Текущая дата")
 
-print(get_transaction_from_xlsx_file(data_patch).info())
+print(get_dataframe().info())
