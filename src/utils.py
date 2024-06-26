@@ -48,8 +48,8 @@ def get_response(date_time_str: str) -> str:
     return greeting
 
 
-get_response("25-06-2024 00:00:01")
-print(get_response("25-06-2024 00:00:01"))
+# get_response("25-06-2024 00:00:01")
+# print(get_response("25-06-2024 00:00:01"))
 
 
 def get_currency_fake(currency: str) -> float:
@@ -64,8 +64,8 @@ def get_stock_fake(stock: str) -> float:
     return result
 
 
-print(get_currency_fake("US"))
-print(get_stock_fake("APPL"))
+# print(get_currency_fake("US"))
+# print(get_stock_fake("APPL"))
 
 
 def getting_data_currencies(api: str, currencies: dict) -> list[dict]:
@@ -102,7 +102,7 @@ with open(os.path.join(ROOT_DIR, "user_settings.json"), "r") as f:
     logger.info(data_json)
 
 # getting_data_currencies("https://currate.ru/api/",data_json)
-getting_data_currencies(url, data_json)
+# getting_data_currencies(url, data_json)
 
 
 def getting_data_stock_prices(api: str, stocks: dict) -> Union[list[dict] | dict]:

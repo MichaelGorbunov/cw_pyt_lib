@@ -4,6 +4,7 @@ import os
 from config import DATA_DIR, LOGS_DIR, ROOT_DIR, url, url_stocks
 from src.utils import get_response
 import json
+from src.categ import get_transaction_from_csv_file
 
 logger = logging.getLogger("views")
 logger_file_handler = logging.FileHandler(os.path.join(LOGS_DIR, "views.log"), encoding="utf8", mode="a")
@@ -18,6 +19,7 @@ def main(date):
     greeting = get_response(date)
     # course = getting_data_currencies(url, data_json)
     # stock_prices = getting_data_stock_prices(url_stocks, data_json)
+    transactions = get_transaction_from_csv_file("1mont.csv")
     top_transactions = [{'date': '22.11.2021', 'amount': -126105.03, 'category': 'Переводы',
                          'description': 'Перевод Кредитная карта. ТП 10.2 RUR'},
                         {'date': '04.10.2021', 'amount': -91500.0, 'category': 'Медицина', 'description': 'Mikrokhirurgya Glaza'},
@@ -35,6 +37,7 @@ def main(date):
     logger.info("Полученные данные преобразовываем в заданный словарь")
     response = {
         "greeting": greeting,
+        "cards": transactions,
         "top_transactions": top_transactions,
         "currency_rates": course,
         "stock_prices": stock_prices,
