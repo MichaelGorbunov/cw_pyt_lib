@@ -12,6 +12,7 @@ openpyxl = "^3.1.4"
 xlrd = "^2.0.1"
 requests = "^2.32.3"
 python-dotenv = "^1.0.1"
+pandas-stubs = "^2.2.2.240603"
 
 
 [tool.poetry.group.lint.dependencies]
