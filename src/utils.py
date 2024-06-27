@@ -58,7 +58,7 @@ def select_data(transactions: pd.DataFrame, date: str) -> pd.DataFrame:
 
     filtered_df = transactions[
         (transactions["datetime_col"] >= start_date) & (transactions["datetime_col"] <= end_date)
-    ]
+        ]
     logger.debug(len(filtered_df))
     return filtered_df
 
@@ -98,7 +98,7 @@ def get_top_transact(transaction: pd.DataFrame) -> list[Dict]:
     for top_transaction in top_transactions:
         result.append(
             {
-                "date": top_transaction["Дата операции"][:10],
+                "date": str(top_transaction["Дата операции"])[:10],
                 "amount": top_transaction["Сумма операции"],
                 "category": top_transaction["Категория"],
                 "description": top_transaction["Описание"],
@@ -106,3 +106,11 @@ def get_top_transact(transaction: pd.DataFrame) -> list[Dict]:
         )
     logger.debug(result)
     return result
+
+
+# from config import TEST_DIR
+#
+# test_date1 = "31-12-2021 00:00:01"
+# test_df = pd.read_excel(os.path.join(TEST_DIR, "test_df.xlsx"))
+# test_df["datetime_col"] = pd.to_datetime(test_df["Дата операции"], dayfirst=True)
+# get_top_transact(test_df)
