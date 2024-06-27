@@ -22,9 +22,6 @@ logger.addHandler(logger_file_handler)
 logger.setLevel(logging.DEBUG)
 
 
-
-
-
 def getting_data_currencies(currencies: dict) -> list[Dict] | Any:
     """Функция, которая получает данные о курсе валют из указанного API для заданной валюты"""
     result = []
@@ -69,4 +66,3 @@ def getting_data_stock_prices(stocks: dict) -> Union[list[dict] | dict]:
     logger.info("Выводим результат по акциям")
     logger.debug(result)
     return result
-

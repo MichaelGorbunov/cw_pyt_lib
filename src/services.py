@@ -24,5 +24,5 @@ def get_transfer_people(transactions: pd.DataFrame) -> Any:
     filtered_dtf = filtered_dtf[filtered_dtf["Описание"].str.contains(r"[А-Я]{1}[а-я]{2,} [А-Я]{1}\.$", regex=True)]
     logger.debug(len(filtered_dtf))
     json_df = filtered_dtf.to_json(orient="records", indent=4, force_ascii=False)
-    # logger.debug(json_df)
+    logger.debug(json_df)
     return json_df

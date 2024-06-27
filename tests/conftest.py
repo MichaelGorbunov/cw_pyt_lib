@@ -1,6 +1,8 @@
-import pytest
 import pandas as pd
+import pytest
+
 from config import TEST_DIR
+
 
 @pytest.fixture
 def df_test():

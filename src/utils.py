@@ -58,7 +58,7 @@ def select_data(transactions: pd.DataFrame, date: str) -> pd.DataFrame:
 
     filtered_df = transactions[
         (transactions["datetime_col"] >= start_date) & (transactions["datetime_col"] <= end_date)
-        ]
+    ]
     logger.debug(len(filtered_df))
     return filtered_df
 

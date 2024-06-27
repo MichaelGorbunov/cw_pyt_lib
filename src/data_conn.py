@@ -34,4 +34,3 @@ data_patch = os.path.join(DATA_DIR, "operations.xls")
 
 def get_dataframe() -> pd.DataFrame:
     return get_transaction_from_xlsx_file(data_patch)
-

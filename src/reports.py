@@ -70,6 +70,7 @@ def spending_by_category(transactions: pd.DataFrame, category: str, date: str = 
     else:
         result_df = pd.DataFrame()
     logger.info(len(result_df))
+    logger.debug(result_df)
     # logger.debug(result_df.to_dict('index'))
     # result_df.to_csv(os.path.join(DATA_DIR, "cat_from_3m.csv"), encoding='utf-8')
     return result_df
