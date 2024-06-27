@@ -7,7 +7,7 @@ from typing import Any, Dict, Union
 import requests
 from dotenv import load_dotenv
 
-from config import DATA_DIR, LOGS_DIR, ROOT_DIR, url, url_stocks
+from config import LOGS_DIR, ROOT_DIR, url, url_stocks
 
 load_dotenv()
 

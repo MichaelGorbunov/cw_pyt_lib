@@ -1,8 +1,15 @@
-import json,logging,os
+import json
+import logging
+import os
+from typing import Any
+
 from config import LOGS_DIR, ROOT_DIR
 from src.data_conn import get_dataframe
 from src.external_api import getting_data_currencies, getting_data_stock_prices
 from src.utils import get_data_group_by_card, get_response, get_top_transact, select_data
+
+# from typing import Dict
+
 
 logger = logging.getLogger("views")
 logger_file_handler = logging.FileHandler(os.path.join(LOGS_DIR, "views.log"), encoding="utf8", mode="a")
@@ -11,7 +18,8 @@ logger_file_handler.setFormatter(logger_formatter)
 logger.addHandler(logger_file_handler)
 logger.setLevel(logging.DEBUG)
 
-def main(date_main):
+
+def main(date_main: str) -> Any:
     with open(os.path.join(ROOT_DIR, "user_settings.json"), "r") as f:
         data_json = json.load(f)
     logger.info("Присваиваем переменным полученные результаты из функций")

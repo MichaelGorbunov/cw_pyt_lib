@@ -1,10 +1,11 @@
 import logging
 import os
 from datetime import datetime, timedelta
+from typing import Any
 
 import pandas as pd
 
-from config import DATA_DIR, LOGS_DIR, ROOT_DIR
+from config import DATA_DIR, LOGS_DIR
 
 logger = logging.getLogger("reports")
 logger_file_handler = logging.FileHandler(os.path.join(LOGS_DIR, "reports.log"), encoding="utf8", mode="a")
@@ -14,9 +15,9 @@ logger.addHandler(logger_file_handler)
 logger.setLevel(logging.DEBUG)
 
 
-def write_to_file_params(file_name: str):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
+def write_to_file_params(file_name: str) -> Any:
+    def decorator(func: Any) -> Any:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             result = func(*args, **kwargs)
             with open(os.path.join(DATA_DIR, file_name), "w", encoding="UTF-8") as file:
                 file.write(result.to_string() + "\n")
@@ -27,8 +28,8 @@ def write_to_file_params(file_name: str):
     return decorator
 
 
-def file_save_decorators(func):
-    def wrapper(*args, **kwargs):
+def file_save_decorators(func: Any) -> Any:
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         result = func(*args, **kwargs)
         result.to_csv(os.path.join(DATA_DIR, "cat_from_3m.csv"), encoding="utf-8")
         return result
@@ -38,11 +39,11 @@ def file_save_decorators(func):
 
 @write_to_file_params(file_name="function_report.txt")
 @file_save_decorators
-def spending_by_category(transactions: pd.DataFrame, category: str, date: [str] = None) -> pd.DataFrame:
+def spending_by_category(transactions: pd.DataFrame, category: str, date: str = "") -> pd.DataFrame:
     """Функция возвращает траты по заданной категории за последние три месяца (от переданной даты)"""
 
     # cat_list: list = []
-    if date is None:
+    if date == "":
         end_date = datetime.today()
         end_date = end_date.replace(microsecond=0)
         # end_day = end_date.day

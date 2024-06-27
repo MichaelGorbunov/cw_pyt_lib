@@ -1,7 +1,7 @@
 import json
 import os
 
-from config import DATA_DIR, LOGS_DIR, ROOT_DIR
+from config import ROOT_DIR
 from src.data_conn import get_dataframe
 from src.external_api import getting_data_currencies, getting_data_stock_prices
 from src.utils import get_data_group_by_card, get_response, get_top_transact, select_data

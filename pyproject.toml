@@ -13,6 +13,7 @@ xlrd = "^2.0.1"
 requests = "^2.32.3"
 python-dotenv = "^1.0.1"
 pandas-stubs = "^2.2.2.240603"
+types-requests = "^2.32.0.20240622"
 
 
 [tool.poetry.group.lint.dependencies]

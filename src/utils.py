@@ -1,16 +1,12 @@
-import json
 import logging
-import math
 import os
-import random
 from datetime import datetime
-from typing import Any, Dict, Union
+from typing import Any, Dict
 
 import pandas as pd
-import requests
 from dotenv import load_dotenv
 
-from config import DATA_DIR, LOGS_DIR, ROOT_DIR, url, url_stocks
+from config import LOGS_DIR
 
 load_dotenv()
 
@@ -51,7 +47,7 @@ def get_response(date_time_str: str) -> str:
 
 # get_response("25-06-2024 00:00:01")
 # print(get_response("25-06-2024 00:00:01"))
-def select_data(transactions: pd.DataFrame, date: [str]) -> pd.DataFrame:
+def select_data(transactions: pd.DataFrame, date: str) -> pd.DataFrame:
     """Функция отбирает датафрейм за месяц"""
 
     end_date = datetime.strptime(date, "%d-%m-%Y %H:%M:%S")
@@ -94,7 +90,7 @@ def get_data_group_by_card(transactions: pd.DataFrame) -> list[Dict] | Any:
     # return df_list
 
 
-def get_top_transact(transaction: pd.DataFrame):
+def get_top_transact(transaction: pd.DataFrame) -> list[Dict]:
     result = []
     df = transaction.sort_values(["Сумма операции"], ascending=True)
     top_transactions = df[:5].to_dict("records")
@@ -110,7 +106,3 @@ def get_top_transact(transaction: pd.DataFrame):
         )
     logger.debug(result)
     return result
-
-
-# get_transaction_from_csv_file("1mont.csv")
-# get_transaction_from_csv_file("1mont.csv")

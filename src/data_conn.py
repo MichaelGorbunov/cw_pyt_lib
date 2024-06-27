@@ -1,5 +1,4 @@
 import os
-from typing import Any, Dict
 
 import pandas as pd
 
@@ -8,7 +7,6 @@ from config import DATA_DIR
 
 def get_transaction_from_xlsx_file(path: str) -> pd.DataFrame:
     """функция извлекает транзакции из файла xlsx"""
-
     try:
         df = pd.read_excel(path)
     except FileNotFoundError:
