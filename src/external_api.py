@@ -1,4 +1,4 @@
-# import json
+import json
 import logging
 import os
 import random
@@ -7,7 +7,7 @@ from typing import Any, Dict, Union
 import requests
 from dotenv import load_dotenv
 
-from config import LOGS_DIR, url, url_stocks
+from config import LOGS_DIR,ROOT_DIR, url, url_stocks
 
 load_dotenv()
 
@@ -38,7 +38,7 @@ def getting_data_currencies(currencies: dict) -> list[Dict] | Any:
         response_json = response.json()
         logger.info("Полученные данные преобразовываем в заданный словарь")
         # result.append({"currency": currency, "rate": list(response_json["data"].values())[0]})
-        result.append({"currency": currency, "rate": list(response_json["data"].values())[0]})
+        result.append({"currency": currency, "rate": response_json.get("data").get(f"{currency}RUB")})
     logger.debug(result)
     return result
 
@@ -66,3 +66,10 @@ def getting_data_stock_prices(stocks: dict) -> Union[list[dict] | dict]:
     logger.info("Выводим результат по акциям")
     logger.debug(result)
     return result
+
+
+with open(os.path.join(ROOT_DIR, "user_settings.json"), "r") as f:
+        data_json = json.load(f)
+
+print(getting_data_currencies(data_json))
+print(getting_data_stock_prices(data_json))
