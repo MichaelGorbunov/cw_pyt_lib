@@ -1,10 +1,12 @@
 import os
 
 import pandas as pd
-# import pytest
 
 from config import TEST_DIR
 from src.utils import get_data_group_by_card, get_response, get_top_transact, select_data
+
+# import pytest
+
 
 test_date1 = "2021-12-31 00:00:01"
 test_df = pd.read_excel(os.path.join(TEST_DIR, "test_df.xlsx"))

@@ -18,7 +18,7 @@ logger.setLevel(logging.DEBUG)
 def get_transfer_people(transactions: pd.DataFrame) -> Any:
     """Функция возвращает JSON со всеми транзакциями, которые относятся к переводам физлицам."""
     logger.info("Получаем датафрейм")
-    filtered_dtf = transactions.loc[(transactions["Категория"] == "Переводы")]
+    filtered_dtf = transactions[(transactions["Категория"] == "Переводы")]
     # pattern = re.compile(r"[А-Я]{1}[а-я]{2,} [А-Я]{1}\.$")
     # filtered_dtf = filtered_dtf[filtered_dtf["Описание"].str.contains(pattern)]
     filtered_dtf = filtered_dtf[filtered_dtf["Описание"].str.contains(r"[А-Я]{1}[а-я]{2,} [А-Я]{1}\.$", regex=True)]
