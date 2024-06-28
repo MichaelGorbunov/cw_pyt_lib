@@ -1,7 +1,7 @@
 import os
 
 import pandas as pd
-import pytest
+# import pytest
 
 from config import TEST_DIR
 from src.reports import spending_by_category

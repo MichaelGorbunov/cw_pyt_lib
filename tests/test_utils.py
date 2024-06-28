@@ -1,7 +1,7 @@
 import os
 
 import pandas as pd
-import pytest
+# import pytest
 
 from config import TEST_DIR
 from src.utils import get_data_group_by_card, get_response, get_top_transact, select_data

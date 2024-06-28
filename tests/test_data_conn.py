@@ -1,7 +1,7 @@
 import os
 
 import pandas as pd
-import pytest
+# import pytest
 
 from config import TEST_DIR
 from src.data_conn import get_transaction_from_xlsx_file

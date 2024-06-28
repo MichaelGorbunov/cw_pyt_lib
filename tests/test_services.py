@@ -1,9 +1,10 @@
-import pytest
-from src.services import get_transfer_people
-import pandas as pd
 import os
+
+import pandas as pd
+# import pytest
 # import json
 from config import TEST_DIR
+from src.services import get_transfer_people
 
 test_date1 = "2021-12-31"
 test_df = pd.read_excel(os.path.join(TEST_DIR, "test_df.xlsx"))
@@ -11,8 +12,7 @@ test_df["datetime_col"] = pd.to_datetime(test_df["Дата операции"], d
 
 
 def test_get_transfer_people():
-    result = (get_transfer_people(test_df))
-
+    result = get_transfer_people(test_df)
 
     assert result != [
         {
@@ -25,6 +25,6 @@ def test_get_transfer_people():
             "Категория": "Переводы",
             "MCC": 7512.0,
             "Описание": "Константин Л.",
-            "datetime_col": 1640902923000
+            "datetime_col": 1640902923000,
         }
     ]
