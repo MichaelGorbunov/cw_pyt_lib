@@ -40,7 +40,7 @@ dat_tim_obj = datetime.now()
 def get_response(date_time_str: str) -> str:
     """Главная функция, которая передает указаннаю дату и возвращает привествие"""
     logger.info(date_time_str)
-    greeting = get_greeting(datetime.strptime(date_time_str, "%d-%m-%Y %H:%M:%S"))
+    greeting = get_greeting(datetime.strptime(date_time_str, "%Y-%m-%d %H:%M:%S"))
     logger.info(greeting)
     return greeting
 
@@ -50,7 +50,7 @@ def get_response(date_time_str: str) -> str:
 def select_data(transactions: pd.DataFrame, date: str) -> pd.DataFrame:
     """Функция отбирает датафрейм за месяц"""
 
-    end_date = datetime.strptime(date, "%d-%m-%Y %H:%M:%S")
+    end_date = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
     start_date = end_date
     start_date = start_date.replace(day=1, microsecond=0)
     logger.info(end_date)
