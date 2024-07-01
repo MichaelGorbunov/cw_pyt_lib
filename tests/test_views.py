@@ -14,10 +14,6 @@ test_df["datetime_col"] = pd.to_datetime(test_df["Дата операции"], d
 date = "2021-12-31 16:44:00"
 
 
-# def test_response():
-#     result = src.views.get_response(date)
-#     assert result == "Добрый день"
-
 def test_get_response():
     with patch("src.views.get_response") as call_fun_get_response:
         call_fun_get_response.return_value = "Ghbdtn"
