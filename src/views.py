@@ -18,11 +18,12 @@ logger_file_handler.setFormatter(logger_formatter)
 logger.addHandler(logger_file_handler)
 logger.setLevel(logging.DEBUG)
 
+with open(os.path.join(ROOT_DIR, "user_settings.json"), "r") as f:
+    data_json = json.load(f)
+
 
 def get_views_data(date_main: str) -> Any:
     """функция собирает данные из других источников и выводито json для веб-страницы"""
-    with open(os.path.join(ROOT_DIR, "user_settings.json"), "r") as f:
-        data_json = json.load(f)
     logger.info("Присваиваем переменным полученные результаты из функций")
     data_frame = get_dataframe()
     greeting = get_response(date_main)

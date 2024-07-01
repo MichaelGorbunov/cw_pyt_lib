@@ -4,6 +4,8 @@ import pandas as pd
 
 from config import DATA_DIR
 
+data_file_patch = os.path.join(DATA_DIR, "operations.xls")
+
 
 def get_transaction_from_xlsx_file(path: str) -> pd.DataFrame:
     """функция извлекает транзакции из файла xlsx"""
@@ -29,8 +31,5 @@ def get_transaction_from_xlsx_file(path: str) -> pd.DataFrame:
     return not_cancel_op
 
 
-data_patch = os.path.join(DATA_DIR, "operations.xls")
-
-
 def get_dataframe() -> pd.DataFrame:
-    return get_transaction_from_xlsx_file(data_patch)
+    return get_transaction_from_xlsx_file(data_file_patch)

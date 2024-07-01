@@ -2,10 +2,10 @@ import json
 import os
 from unittest.mock import patch
 
-from config import ROOT_DIR
+from config import TEST_DIR
 from src.external_api import getting_data_currencies, getting_data_stock_prices
 
-with open(os.path.join(ROOT_DIR, "tests\\user_settings_test.json"), "r") as f:
+with open(os.path.join(TEST_DIR, "user_settings_test.json"), "r") as f:
     data_json = json.load(f)
 
 
