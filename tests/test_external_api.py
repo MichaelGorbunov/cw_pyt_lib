@@ -18,14 +18,6 @@ def test_getting_data_stock_prices_invalid(mocked_get):
 
 
 @patch("src.external_api.requests.get")
-def test_getting_data_stock_prices_invalid(mocked_get):
-    """ошибка запроса к API"""
-    mocked_get.return_value.status_code = 400
-    result = getting_data_stock_prices(data_json)
-    assert result == []
-
-
-@patch("src.external_api.requests.get")
 def test_currency_conversion(mocked_get):
     mocked_get.return_value.status_code = 200
     mocked_get.return_value.json.return_value = {"data": {"USDRUB": "64.1824"}}

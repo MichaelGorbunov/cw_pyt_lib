@@ -1,7 +1,6 @@
 import json
 import logging
 import os
-import random
 from typing import Any, Dict, Union
 
 import requests
