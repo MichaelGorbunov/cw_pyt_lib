@@ -18,9 +18,6 @@ logger_file_handler.setFormatter(logger_formatter)
 logger.addHandler(logger_file_handler)
 logger.setLevel(logging.DEBUG)
 
-with open(os.path.join(ROOT_DIR, "user_settings.json"), "r") as f:
-    data_json = json.load(f)
-
 
 def get_views_data(date_main: str) -> Any:
     """функция собирает данные из других источников и выводито json для веб-страницы"""
@@ -47,7 +44,3 @@ def get_views_data(date_main: str) -> Any:
     logger.info("Выводим результат")
     logger.debug(json.dumps(response, ensure_ascii=False, indent=4))
     return json.dumps(response, ensure_ascii=False, indent=4)
-
-
-# date_q = "31-12-2021 00:00:01"
-# main(date_q)
