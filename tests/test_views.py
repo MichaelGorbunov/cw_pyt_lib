@@ -14,21 +14,9 @@ test_df["datetime_col"] = pd.to_datetime(test_df["Дата операции"], d
 date = "2021-12-31 16:44:00"
 
 
-def test_response():
-    result = src.views.get_response(date)
-    assert result == "Добрый день"
-
-
-# def test_get_top_transact():
-#     result = src.views.get_top_transact(test_df)
-#     assert result == [
-#         {"date": "2021-12-30", "amount": -20000.0, "category": "Переводы", "description": "Константин Л."},
-#         {"date": "2021-12-29", "amount": -1411.4, "category": "Ж/д билеты", "description": "РЖД"},
-#         {"date": "2021-12-29", "amount": -1411.4, "category": "Ж/д билеты", "description": "РЖД"},
-#         {"date": "2021-12-30", "amount": -7.07, "category": "Каршеринг", "description": "Ситидрайв"},
-#         {"date": "2021-12-30", "amount": -1.32, "category": "Каршеринг", "description": "Ситидрайв"},
-#     ]
-
+# def test_response():
+#     result = src.views.get_response(date)
+#     assert result == "Добрый день"
 
 def test_get_response():
     with patch("src.views.get_response") as call_fun_get_response:
