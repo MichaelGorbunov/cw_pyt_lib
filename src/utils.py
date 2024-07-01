@@ -34,9 +34,6 @@ def get_greeting(time: datetime) -> str:
         return "Доброй ночи"
 
 
-dat_tim_obj = datetime.now()
-
-
 def get_response(date_time_str: str) -> str:
     """Главная функция, которая передает указаннаю дату и возвращает привествие"""
     logger.info(date_time_str)
@@ -45,8 +42,6 @@ def get_response(date_time_str: str) -> str:
     return greeting
 
 
-# get_response("25-06-2024 00:00:01")
-# print(get_response("25-06-2024 00:00:01"))
 def select_data(transactions: pd.DataFrame, date: str) -> pd.DataFrame:
     """Функция отбирает датафрейм за месяц"""
 
@@ -58,7 +53,7 @@ def select_data(transactions: pd.DataFrame, date: str) -> pd.DataFrame:
 
     filtered_df = transactions[
         (transactions["datetime_col"] >= start_date) & (transactions["datetime_col"] <= end_date)
-    ]
+        ]
     logger.debug(len(filtered_df))
     return filtered_df
 
@@ -106,7 +101,6 @@ def get_top_transact(transaction: pd.DataFrame) -> list[Dict]:
         )
     logger.debug(result)
     return result
-
 
 # from config import TEST_DIR
 #
