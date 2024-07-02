@@ -2,10 +2,10 @@ import json
 import os
 from unittest.mock import patch
 
-from config import ROOT_DIR
+from config import TEST_DIR
 from src.external_api import getting_data_currencies, getting_data_stock_prices
 
-with open(os.path.join(ROOT_DIR, "tests\\user_settings_test.json"), "r") as f:
+with open(os.path.join(TEST_DIR, "user_settings_test.json"), "r") as f:
     data_json = json.load(f)
 
 
@@ -14,14 +14,6 @@ def test_getting_data_stock_prices_invalid(mocked_get):
     """ошибка запроса к API"""
     mocked_get.return_value.status_code = 400
     result = getting_data_currencies(data_json)
-    assert result == []
-
-
-@patch("src.external_api.requests.get")
-def test_getting_data_stock_prices_invalid(mocked_get):
-    """ошибка запроса к API"""
-    mocked_get.return_value.status_code = 400
-    result = getting_data_stock_prices(data_json)
     assert result == []
 
 

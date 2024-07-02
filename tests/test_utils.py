@@ -1,19 +1,21 @@
 import os
 
 import pandas as pd
-import pytest
 
 from config import TEST_DIR
 from src.utils import get_data_group_by_card, get_response, get_top_transact, select_data
 
-test_date1 = "31-12-2021 00:00:01"
+# import pytest
+
+
+test_date1 = "2021-12-31 00:00:01"
 test_df = pd.read_excel(os.path.join(TEST_DIR, "test_df.xlsx"))
 test_df["datetime_col"] = pd.to_datetime(test_df["Дата операции"], dayfirst=True)
 
 
 def test_get_response():
     """тест приветствия"""
-    date = "25-06-2024 00:00:01"
+    date = "2024-06-01 00:00:01"
     result = get_response(date)
     assert result == "Доброй ночи"
 
